@@ -9,7 +9,7 @@
  */
 void _puts(char *str)
 {
-	while (*str != "\0")
+	while (*str != '\0')
 		_putchar(str++);
 	_putchar('\n');
 }
@@ -37,4 +37,43 @@ int _strncmp(const char *s1, const char *s2, size_t n)
 			return (-1);
 	}
 	return (0);
+}
+
+/**
+ * _strcpy - copies the string pointed to by src
+ * @dest: copy source to this buffer
+ * @src: this is the source to copy
+ * Return: copy of original source
+ */
+char *_strcpy(char *dest, char *src)
+{
+	int i = 0;
+
+	while (*src)
+		dest[i++] = *src++;
+	dest[i] = '\0';
+
+	return (dest);
+}
+
+/**
+ * _strncpy - copies a stirng
+ * @dest: destination to copy
+ * @src: source to copy
+ * @n: amount of places to copy
+ * Return: value of dest
+ */
+char *_strncpy(char *dest, char *src, int n)
+{
+	int i =0;
+
+	while (i < n && src[i] != '\0')
+	{
+		dest[i] = src[i];
+	}
+	while (i < n)
+	{
+		dest[i] = '\0';
+	}
+	return (dest);
 }
