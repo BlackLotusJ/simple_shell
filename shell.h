@@ -12,7 +12,33 @@
 #include <dirent.h>
 #include <signal.h>
 
+#define EXTERNAL_COMMAND 1
+#define INTERNAL_COMMAND 2
+#define PATH_COMMAND 3
+#define INVALID_COMMAND -1
+
+#define min(x, y) (((x) < (y)) ? (x) : (y))
+
+/**
+ *struct map - a struct that maps a command name to a function 
+ *
+ *@command_name: name of the command
+ *@func: the function that executes the command
+ */
+typedef struct map
+{
+	char *command_name;
+	void (*func)(char **command);
+} function_map;
+
+extern char **environ;
+extern char *line;
+extern char **commands;
+extern char *shell_name;
+extern int status;
+
 /*HELPER FUNCTIONS*/
+void print(char *, int);
 int _strlen(char *string);
 void _strcpy(char *source, char *dest);
 int _strcmp(char *, char *);
@@ -22,5 +48,23 @@ int _strcspn(char *, char *);
 char *_strchr(char *, char);
 
 /*MAIN FUNCTIONS*/
+char **tokenizer(char *, char *);
+char *_strtok_r(char *, char *, char **);
+int _atoi(char *);
+void *_realloc(void *ptr, unsigned int old_size, unsigned int new_size);
+void ctrl_c_handler(int);
+void remove_comment(char *);
+/*Builtin Functions*/
+void env(char **);
+void quit(char **);
 
+/*Utilities*/
+int parse_command(char *);
+void execute_command(char **, int);
+char *check_path(char *);
+void (*get_func(char *))(char **);
+char *_getenv(char *);
+
+extern void non_interactive(void);
+extern void executor(char **current_command, int type_command);
 #endif
