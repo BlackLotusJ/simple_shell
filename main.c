@@ -1,11 +1,9 @@
 #include "shell.h"
 
-<<<<<<< HEAD
 	char **commands = NULL;
 	char *line = NULL;
 	char *shell_name = NULL;
 	int status = 0;	
->>>>>>> bf927dd360ecb4f1b8891ecb69f9195154d8a846
 /**
  * main - the main shell code
  * @argc: number of arguments passed
