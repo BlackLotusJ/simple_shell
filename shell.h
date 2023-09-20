@@ -67,6 +67,7 @@ void shell_cd(char **args);
 int shell_setenv(char **args);
 int shell_unsetenv(char **args);
 void shell_help(void);
+int shell_clear(char **args);
 
 /*Utilities*/
 int parse_command(char *);
