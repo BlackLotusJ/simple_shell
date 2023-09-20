@@ -60,9 +60,11 @@ void remove_newline(char *str);
 void env(char **);
 void quit(char **);
 
+int check_for_builtin(char **args);
 void shell_cd(char **args);
 int shell_setenv(char **args);
 int shell_unsetenv(char **args);
+void shell_help(void);
 
 /*Utilities*/
 int parse_command(char *);
