@@ -38,7 +38,7 @@ extern char *shell_name;
 extern int status;
 
 /*HELPER FUNCTIONS*/
-void print(char *, int);
+void print(char *string, int stream);
 int _strlen(char *string);
 void _strcpy(char *source, char *dest);
 int _strcmp(char *, char *);
@@ -54,6 +54,8 @@ int _atoi(char *);
 void *_realloc(void *ptr, unsigned int old_size, unsigned int new_size);
 void ctrl_c_handler(int);
 void remove_comment(char *);
+void remove_newline(char *str);
+
 /*Builtin Functions*/
 void env(char **);
 void quit(char **);
