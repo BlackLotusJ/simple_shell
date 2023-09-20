@@ -60,6 +60,7 @@ void remove_newline(char *str);
 void env(char **);
 void quit(char **);
 
+void shell_cd(char **args);
 int shell_setenv(char **args);
 int shell_unsetenv(char **args);
 
