@@ -11,9 +11,9 @@ int check_for_builtin(char **args)
 	if (!args[0])
 		return (0);
 	if (!_strcmp(args[0], "exit"))
-		shell_exit(args);
+		quit(args);
 	else if (!_strcmp(args[0], "env"))
-		shell_env();
+		env(args);
 	else if (!_strcmp(args[0], "setenv"))
 		shell_setenv(args);
 	else if (!_strcmp(args[0], "unsetenv"))
