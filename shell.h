@@ -39,6 +39,8 @@ extern int status;
 
 /*HELPER FUNCTIONS*/
 void print(char *string, int stream);
+void _puts(char *str);
+int _putchar(char c);
 int _strlen(char *string);
 void _strcpy(char *source, char *dest);
 int _strcmp(char *, char *);
