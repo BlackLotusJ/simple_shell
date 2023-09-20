@@ -70,6 +70,10 @@ char *check_path(char *);
 void (*get_func(char *))(char **);
 char *_getenv(char *);
 
+/*error*/
+void _puterror(char *err);
+
 extern void non_interactive(void);
 extern void executor(char **current_command, int type_command);
-#endif
+
+#endif/*SHELL_H*/
