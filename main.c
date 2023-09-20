@@ -1,6 +1,5 @@
 #include "shell.h"
 
-	
 /**
  * main - the main shell code
  * @argc: number of arguments passed
@@ -51,4 +50,4 @@ int main(int argc __attribute__((unused)), char **argv)
 	free(line);
 
 	return (status);
-}	
+}
