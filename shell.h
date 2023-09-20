@@ -23,3 +23,4 @@ char *_strchr(char *, char);
 
 /*MAIN FUNCTIONS*/
 
+#endif
