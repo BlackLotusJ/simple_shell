@@ -96,3 +96,4 @@ int _strlen(char *string)
 		;
 	return (len);
 }
+
