@@ -60,6 +60,9 @@ void remove_newline(char *str);
 void env(char **);
 void quit(char **);
 
+int shell_setenv(char **args);
+int shell_unsetenv(char **args);
+
 /*Utilities*/
 int parse_command(char *);
 void execute_command(char **, int);
