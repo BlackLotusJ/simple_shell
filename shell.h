@@ -37,11 +37,6 @@ extern char **commands;
 extern char *shell_name;
 extern int status;
 
-char **commands = NULL;
-char *line = NULL;
-char *shell_name = NULL;
-int status  = 0;
-
 /*HELPER FUNCTIONS*/
 void print(char *string, int stream);
 void _puts(char *str);
