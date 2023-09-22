@@ -40,17 +40,20 @@ void non_interactive(void)
 	char **current_command = NULL;
 	int i, type_command = 0;
 	size_t n = 0;
+	ShellData gb;
+
+	initializeShellData(&gb);
 
 	if (!(isatty(STDIN_FILENO)))
 	{
-		while (getline(&line, &n, stdin) != -1)
+		while (getline(&gb.line, &n, stdin) != -1)
 		{
-			remove_newline(line);
-			remove_comment(line);
-			commands = tokenizer(line, ";");
-			for (i = 0; commands[i] != NULL; i++)
+			remove_newline(gb.line);
+			remove_comment(gb.line);
+			gb.commands = tokenizer(gb.line, ";");
+			for (i = 0; gb.commands[i] != NULL; i++)
 			{
-				current_command = tokenizer(commands[i], " ");
+				current_command = tokenizer(gb.commands[i], " ");
 				if (current_command[0] == NULL)
 				{
 					free(current_command);
@@ -60,9 +63,9 @@ void non_interactive(void)
 				executor(current_command, type_command);
 				free(current_command);
 			}
-			free(commands);
+			free(gb.commands);
 		}
-		free(line);
-		exit(status);
+		free(gb.line);
+		exit(gb.status);
 	}
 }

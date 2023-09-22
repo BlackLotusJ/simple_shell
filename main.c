@@ -1,10 +1,15 @@
 #include "shell.h"
 
+/**
+ * initializeShellData - initialize shell data
+ * Description: initaializes parameters to be used by reguired functions
+ * @gb: global variable
+ */
 void initializeShellData(ShellData *gb)
 {
 	gb->commands = NULL;
 	gb->line = NULL;
-	gb->shell_name = argv[0];
+	gb->shell_name = NULL;
 	gb->status = 0;
 }
 /**
@@ -19,31 +24,31 @@ void initializeShellData(ShellData *gb)
  */
 int main(int argc __attribute__((unused)), char **argv)
 {
-	/*Shell Data*/
-	ShellData gb;
-	initializeShellData(&gb);
-	/* Main code */
 	char **current_command = NULL;
 	int i, type_command = 0;
 	size_t n = 0;
 
+	ShellData gb;
+
+	initializeShellData(&gb);
+
 	signal(SIGINT, ctrl_c_handler);
-	shell_name = argv[0];
+	gb.shell_name = argv[0];
 	while (1)
 	{
 		non_interactive();
 		print(" ($) ", STDOUT_FILENO);
-		if (getline(&line, &n, stdin) == -1)
+		if (getline(&gb.line, &n, stdin) == -1)
 		{
-			free(line);
-			exit(status);
+			free(gb.line);
+			exit(gb.status);
 		}
-			remove_newline(line);
-			remove_comment(line);
-			commands = tokenizer(line, ";");
-		for (i = 0; commands[i] != NULL; i++)
+			remove_newline(gb.line);
+			remove_comment(gb.line);
+			gb.commands = tokenizer(gb.line, ";");
+		for (i = 0; gb.commands[i] != NULL; i++)
 		{
-			current_command = tokenizer(commands[i], " ");
+			current_command = tokenizer(gb.commands[i], " ");
 			if (current_command[0] == NULL)
 			{
 				free(current_command);
@@ -55,8 +60,8 @@ int main(int argc __attribute__((unused)), char **argv)
 			executor(current_command, type_command);
 			free(current_command);
 		}
-		free(commands);
+		free(gb.commands);
 	}
-	free(line);
-	return (status);
+	free(gb.line);
+	return (gb.status);
 }

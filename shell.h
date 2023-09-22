@@ -20,8 +20,7 @@
 #define min(x, y) (((x) < (y)) ? (x) : (y))
 
 /**
- *struct map - a struct that maps a command name to a function 
- *
+ *struct map - a struct that maps a command name to a function
  *@command_name: name of the command
  *@func: the function that executes the command
  */
@@ -37,15 +36,22 @@ extern char **commands;
 extern char *shell_name;
 extern int status;
 
+/**
+ * struct - global variables turned struct
+ * @line: lines
+ * @commands: input commands
+ * @shell_name: name of shell
+ * status: status
+ */
 typedef struct
 {
 	char **commands;
 	char *line;
 	char *shell_name;
 	int status;
-}ShellData;
+} ShellData;
 
-void initilaizeShellData(ShellData *gb);
+void initializeShellData(ShellData *gb);
 
 /*HELPER FUNCTIONS*/
 void print(char *string, int stream);
