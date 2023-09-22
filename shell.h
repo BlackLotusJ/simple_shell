@@ -136,7 +136,7 @@ char *without_comment(char *in);
 void repl(data_shell *datash);
 
 /* read.c */
-char *read(int *i_eof);
+char *read_line(int *i_eof);
 
 /* split.c */
 char *swap_char(char *input, int bool);
