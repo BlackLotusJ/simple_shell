@@ -1,5 +1,4 @@
-i#include "shell.h"
-
+#include "shell.h"
 /**
  * free_data - frees data structure
  *
