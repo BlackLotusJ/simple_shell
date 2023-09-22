@@ -135,8 +135,8 @@ int check_syntax_error(data_shell *datash, char *input);
 char *without_comment(char *in);
 void repl(data_shell *datash);
 
-/* read_line.c */
-char *read_line(int *i_eof);
+/* read.c */
+char *read(int *i_eof);
 
 /* split.c */
 char *swap_char(char *input, int bool);
