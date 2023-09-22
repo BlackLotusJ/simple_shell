@@ -37,6 +37,16 @@ extern char **commands;
 extern char *shell_name;
 extern int status;
 
+typedef struct
+{
+	char **commands;
+	char *line;
+	char *shell_name;
+	int status;
+}ShellData;
+
+void initilaizeShellData(ShellData *gb);
+
 /*HELPER FUNCTIONS*/
 void print(char *string, int stream);
 void _puts(char *str);

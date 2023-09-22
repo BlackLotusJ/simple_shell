@@ -1,10 +1,12 @@
 #include "shell.h"
 
-	char **commands = NULL;
-	char *line = NULL;
-	char *shell_name = NULL;
-	int status = 0;
-
+void initializeShellData(ShellData *gb)
+{
+	gb->commands = NULL;
+	gb->line = NULL;
+	gb->shell_name = argv[0];
+	gb->status = 0;
+}
 /**
  * main - the main shell code
  * @argc: number of arguments passed
@@ -17,6 +19,10 @@
  */
 int main(int argc __attribute__((unused)), char **argv)
 {
+	/*Shell Data*/
+	ShellData gb;
+	initializeShellData(&gb);
+	/* Main code */
 	char **current_command = NULL;
 	int i, type_command = 0;
 	size_t n = 0;
